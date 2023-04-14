@@ -1,17 +1,38 @@
 import connect from "../../lib/mongodb";
 import User from "../../model/schema";
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 
 connect()
 
 //this function will handle the requests and the responses
 export default async function handler(req,res){
-  try {
-    const user = await User.create(req.body);
-    res.redirect('/')
-    if(!user){
-        return res.json({"code":"User not created"})
+  if (req.method === 'POST') {
+    const { email, password } = req.body;
+
+    try {
+      // Check if user already exists
+      const existingUser = await User.findOne({ email });
+      if (existingUser) {
+        return res.status(409).json({ message: 'User already exists' });
+      }
+
+      // Hash password
+      const hashedPassword = await bcrypt.hash(password, 10);
+
+      // Create new user
+      const newUser = new User({ email, password: hashedPassword });
+      await newUser.save();
+
+      // Generate token
+      const token = jwt.sign({ userId: newUser._id }, process.env.JWT_SECRET);
+
+      // Return user data and token
+      res.status(201).json({ user: newUser, token });
+    } catch (error) {
+      res.status(500).json({ message: error.message });
     }
-  } catch (error) {
-    res.status(400).json({status:"Not able to create a user"})
+  } else {
+    res.status(405).json({ message: 'Method not allowed' });
   }
 }
