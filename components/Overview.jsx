@@ -1,7 +1,7 @@
 import React, { use } from 'react'
 import { useState } from 'react'
 
-function Overview() {
+function Overview(props) {
     const [visible,setVisible]=useState(false);
     const [amount,setAmount]=useState();
     const [title,setTitle]=useState();
@@ -10,7 +10,8 @@ function Overview() {
         setVisible(!visible)
     }
 
-    const addTransaction=()=>{
+    const addTransact=()=>{
+      props.addTransaction({amount:Number(amount),title});
       console.log({amount,title});
     }
 
@@ -31,7 +32,7 @@ function Overview() {
             <input type="text" placeholder='Enter title' value={title || ""} onChange={(e)=>setTitle(e.target.value)}/>
             <label htmlFor="expenseamount">Amount</label>
             <input type="number" name="amount" id="amount" placeholder='Enter amount' value={amount || ""} onChange={(e)=>setAmount(e.target.value)}/>                    
-            <button onClick={()=>{togglevisibility(); addTransaction();}}>Add Transaction</button>
+            <button onClick={()=>{togglevisibility(); addTransact(); }} addTransaction={props.addTransaction}>Add Transaction</button>
     </div>}
     <div className="expense-amount-window">
         <h1>Total Expenses: 10000$</h1>
