@@ -19,25 +19,34 @@ export default async function handler(req,res){
 import { connectToDatabase } from '../../lib/mongodb';
 
 export default async function handler(req, res) {
-  const { email, password } = req.body;
+
 
   // Connect to MongoDB database
-  const client = await connectToDatabase();
-  const db = client.db("myFirstDatabase");
 
-  // Find user with matching email and password
-  const user = await db.collection('users').findOne({ email, password });
+  const { email, password } = req.body;
 
-  if (!user) {
-    res.status(401).json({ message: 'Invalid credentials' });
+  const client = await MongoClient.connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
+  const db = client.db('myFirstDatabase');
+  const collection = db.collection('users');
+  const user = await collection.findOne({ email,password });
+
+  if (!user || user.password !== password) {
+    res.status(401).json({ message: 'Invalid email or password' });
     return;
-  }
-  else {
+  } else {
     res.status(301);
     res.setHeader('Location','/home');
     res.end();
     
   }
+  if (!user.email) {
+    res.status(400).json({ message: 'Email not found' });
+    return;
+  }
+  res.status(200).json({user});
   // Return user details on successful login
-  res.status(200).json({ user });
+  //res.status(200).json({ user });
 }
