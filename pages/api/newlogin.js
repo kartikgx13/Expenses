@@ -25,8 +25,7 @@ async function handleGetRequest(req, res) {
   const collection = db.collection('users');
   const user = await collection.findOne({ email });
 
-  //res.status(200).json(user);
-  res.redirect('/home')
+  res.status(200).json(user);
   return;
 }
 
