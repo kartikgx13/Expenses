@@ -49,9 +49,4 @@ async function handlePostRequest(req, res) {
     res.end();
     
   }
-  if (!user.email) {
-    res.status(400).json({ message: 'Email not found' });
-    return;
-  }
-  res.status(200).json({user});
 }
