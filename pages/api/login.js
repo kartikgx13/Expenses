@@ -20,9 +20,6 @@ import { connectToDatabase } from '../../lib/mongodb';
 
 export default async function handler(req, res) {
 
-
-  // Connect to MongoDB database
-
   const { email, password } = req.body;
 
   const client = await MongoClient.connect(process.env.MONGODB_URI, {
