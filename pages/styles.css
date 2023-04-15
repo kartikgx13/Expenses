@@ -1,28 +1,31 @@
-.main-overview-container{
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+
+.registration-form-container{
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.expense-heading{
+.registration-form-container form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.login-register-container{
     width: 100%;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.check-buttons{
+    width: 50%;
+    display: flex;
     justify-content: space-between;
-    align-items: center;
-}
-
-.transaction-window{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.transaction-form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
