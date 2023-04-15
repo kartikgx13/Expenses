@@ -21,7 +21,7 @@ async function handleGetRequest(req, res) {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
-  const db = client.db('test');
+  const db = client.db('myFirstDatabase');
   const collection = db.collection('users');
   const user = await collection.findOne({ email });
 
@@ -36,7 +36,7 @@ async function handlePostRequest(req, res) {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
-  const db = client.db('test');
+  const db = client.db('myFirstDatabase');
   const collection = db.collection('users');
   const user = await collection.findOne({ email });
 

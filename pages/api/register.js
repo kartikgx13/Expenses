@@ -1,7 +1,5 @@
 import connect from "../../lib/mongodb";
 import User from "../../model/schema";
-import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
 
 connect()
 
