@@ -18,17 +18,16 @@ export default async function handler(req,res){
       }
 
       // Hash password
-      const hashedPassword = await bcrypt.hash(password, 10);
+      
 
       // Create new user
-      const newUser = new User({ email, password: hashedPassword });
+      const newUser = new User({ email, password });
       await newUser.save();
 
       // Generate token
-      const token = jwt.sign({ userId: newUser._id }, process.env.JWT_SECRET);
 
       // Return user data and token
-      res.status(201).json({ user: newUser, token });
+      res.status(201).json({ user: newUser});
     } catch (error) {
       res.status(500).json({ message: error.message });
     }
