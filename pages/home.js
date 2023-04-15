@@ -4,13 +4,8 @@ import Overview from '../components/Overview';
 
 
 function home() {
-  const [userData, setUserData] = useState({});
 
-  useEffect(() => {
-    fetch('/api/newlogin')
-      .then(res => res.json())
-      .then(user => setUserData(user));
-  }, []);
+  // If user is not logged in, render login form
   return (
     <>
     <h1>Hello</h1>

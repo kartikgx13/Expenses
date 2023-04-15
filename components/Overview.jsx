@@ -26,7 +26,7 @@ function Overview() {
           {visible ? "CANCEL" : "ADD"}
         </button>
     </div>
-    {visible && <div className="transaction-window" onClick={togglevisibility}>
+    {visible && <div className="transaction-window">
             <label htmlFor="expensename">Title</label>
             <input type="text" placeholder='Enter title' value={title || ""} onChange={(e)=>setTitle(e.target.value)}/>
             <label htmlFor="expenseamount">Amount</label>

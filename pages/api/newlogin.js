@@ -39,7 +39,7 @@ async function handlePostRequest(req, res) {
   });
   const db = client.db('myFirstDatabase');
   const collection = db.collection('users');
-  const user = await collection.findOne({ email });
+  const user = await collection.findOne({ email,password });
 
   if (!user || user.password !== password) {
     res.status(401).json({ message: 'Invalid email or password' });
@@ -48,8 +48,11 @@ async function handlePostRequest(req, res) {
     res.status(301);
     res.setHeader('Location','/home');
     res.end();
-    //res.status(200).json({user});
+    
   }
-  
-  
+  if (!user.email) {
+    res.status(400).json({ message: 'Email not found' });
+    return;
+  }
+  res.status(200).json({user});
 }
