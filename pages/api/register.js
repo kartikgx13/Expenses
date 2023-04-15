@@ -1,4 +1,4 @@
-{/*import connect from "../../lib/mongodb";
+import connect from "../../lib/mongodb";
 import User from "../../model/schema";
 
 connect()
@@ -32,9 +32,9 @@ export default async function handler(req,res){
   } else {
     res.status(405).json({ message: 'Method not allowed' });
   }
-}*/}
+}
 
-import { connectToDatabase } from '../../lib/mongodb';
+{/*import { connectToDatabase } from '../../lib/mongodb';
 
 export default async function handler(req, res) {
   const { email, password } = req.body;
@@ -60,4 +60,4 @@ export default async function handler(req, res) {
   }
 
   res.status(201).json({ message: 'User registered successfully' });
-}
+}*/}
