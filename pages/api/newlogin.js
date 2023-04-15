@@ -44,8 +44,8 @@ async function handlePostRequest(req, res) {
     res.status(401).json({ message: 'Invalid email or password' });
     return;
   } else {
-    //res.redirect('/home')
-    res.status(200).json({user});
+    res.redirect('/home')
+    //res.status(200).json({user});
   }
   
   

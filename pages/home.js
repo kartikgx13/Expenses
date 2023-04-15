@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState,useEffect } from 'react'
+import Overview from '../components/Overview';
 
 
 function home() {
@@ -13,6 +14,7 @@ function home() {
   return (
     <>
     <h1>Hello</h1>
+    <Overview/>
     </>
   )
 }
