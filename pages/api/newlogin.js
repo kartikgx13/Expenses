@@ -52,7 +52,7 @@ async function handlePostRequest(req, res) {
   }
   else{
   res.status(301);
-  res.setHeader('Location','/home');
+  res.setHeader('Location','/dashboard');
   res.end();
   }
 

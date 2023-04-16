@@ -3,6 +3,7 @@ import React from 'react'
 function LoginForm() {
   return (
     <>
+    <div className="login-page-container">
     <div className="registration-form-container">
     <h1>Login form</h1>
     <form action="/api/newlogin" method="post">
@@ -12,6 +13,7 @@ function LoginForm() {
       <input type="password" placeholder="Enter your password" name="password"/>
       <input type="submit" value="Login"/>
     </form>
+    </div>
     </div>
     </>
   )

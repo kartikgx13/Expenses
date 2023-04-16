@@ -3,7 +3,15 @@ import React from "react"
 export default function Home(){
   return(
     <>
-    <Link href="/loginandregister">Click here to begin</Link>
+    <div className="landing-page-container">
+      <div className="landing-page-button">
+        <Link href="/loginandregister">
+        <button>
+          Click here to begin
+        </button>
+        </Link>
+      </div>
+    </div>
     </>
   )
 }
