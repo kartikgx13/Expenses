@@ -1,8 +1,10 @@
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react'
 import { useState,useEffect } from 'react'
 
 
-function TransactionWindow() {
+function TransactionWindow(props) {
   const [title, setTitle] = useState('');
   const [amount, setAmount] = useState('');
   const [expenses, setExpenses] = useState([]);
@@ -40,17 +42,29 @@ function TransactionWindow() {
 
   return (
     <>
-    <div>
-      <h1>Expenses</h1>
-      <div>
+    <div className="main-expense-container">
+      <div className="expense-left-section">
+      <h1>{props.form_title}</h1>
+      <div className='expense-title-amount'>
         <label htmlFor="title">Title:</label>
-        <input type="text" id="title" value={title} onChange={handleTitleChange} />
+        <input type="text" 
+                    value={title}
+                    name={'title'} 
+                    placeholder={props.title_type}
+                    onChange={handleTitleChange} />
       </div>
-      <div>
+      <div className='expense-title-amount'>
         <label htmlFor="amount">Amount:</label>
-        <input type="number" id="amount" value={amount} onChange={handleAmountChange} />
+        <input value={amount}  
+                    type="text" 
+                    name={'amount'} 
+                    placeholder={props.amount_type}
+                    onChange={handleAmountChange} />
       </div>
-      <button onClick={handleAddExpense}>Add Expense</button>
+      <div className={props.btn_class} onClick={handleAddExpense}>
+      {props.add_type}
+      </div>
+      </div>
       {/*expenses.length > 0 && (
         <ul>
           {expenses.map((expense, index) => (
@@ -61,18 +75,26 @@ function TransactionWindow() {
         </ul>
           )*/}
 
+    <div className="expense-right-section">
     {expenses.length === 0 ? (
         <p>No expenses yet.</p>
       ) : (
-        <ul>
+        <ul className='expense-list-array'>
           {expenses.map((expense, index) => (
             <li key={index}>
-              <span>{expense.title} - ${expense.amount}</span>
-              <button onClick={() => handleDeleteExpense(index)}>Delete</button>
+              <div className="expense-item-detail">{expense.title} - ${expense.amount}</div>
+              <div className="delete-item" onClick={() => handleDeleteExpense(index)}>
+               <FontAwesomeIcon
+               icon={faTrash}
+               width={50}
+               />
+              </div>
             </li>
           ))}
         </ul>
-      )}
+      )
+      }
+    </div>
     </div>
     </>
   )

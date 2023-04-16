@@ -19,16 +19,18 @@ function loginandregister() {
 
   return (
    <>
+   {/*<section className="login-main-section">
    <div className="login-register-container">
     <div className="login-register-box">
     <div className="check-buttons">
-    <button onClick={handleLoginClick}>Login</button>
-    <button onClick={handleRegisterClick}>Register</button>
+    <div><button onClick={handleLoginClick}>Login</button></div>
+    <div><button onClick={handleRegisterClick}>Register</button></div>
     </div>
     {showRegister && <RegistrationForm/>}
     {showLogin && <LoginForm/>}
     </div>
    </div>
+  </section>*/}
    </>
   )
 }

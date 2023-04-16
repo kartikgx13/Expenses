@@ -1,17 +1,42 @@
 import Link from "next/link"
 import React from "react"
+import LoginForm from '../components/LoginForm'
+import RegistrationForm from '../components/RegistrationForm'
+import { useState } from "react"
 export default function Home(){
+    const [showLogin, setShowLogin] = useState(true);
+    const [showRegister, setShowRegister] = useState(false);
+    const [buttonColorLogin,setButtonColorLogin]=useState("rgb(182,157,230)");
+    const [buttonColorRegister,setButtonColorRegister]=useState("white");
+
+    const handleLoginClick = () => {
+      setShowLogin(true);
+      setShowRegister(false);
+      setButtonColorLogin("rgb(182,157,230)");
+      setButtonColorRegister("white");
+    };
+
+    const handleRegisterClick = () => {
+        setShowRegister(true);
+        setShowLogin(false);
+        setButtonColorLogin("white")
+        setButtonColorRegister("rgb(182,157,230)")
+    };
   return(
     <>
-    <div className="landing-page-container">
-      <div className="landing-page-button">
-        <Link href="/loginandregister">
-        <button>
-          Click here to begin
-        </button>
-        </Link>
-      </div>
+
+   <section className="login-main-section">
+   <div className="login-register-container">
+    <div className="login-register-box">
+    <div className="check-buttons">
+    <div><button onClick={handleLoginClick} style={{backgroundColor: buttonColorLogin,color:"black"}}>Login</button></div>
+    <div><button onClick={handleRegisterClick} style={{backgroundColor: buttonColorRegister,color:"black"}}>Register</button></div>
     </div>
+    {showRegister && <RegistrationForm/>}
+    {showLogin && <LoginForm/>}
+    </div>
+   </div>
+  </section>
     </>
   )
 }
