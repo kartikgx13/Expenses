@@ -1,37 +1,42 @@
+import { use } from "react";
 import connect from "../../lib/mongodb";
 import User from "../../model/schema";
+import { MongoClient } from "mongodb";
+import bcrypt from 'bcrypt'
 
 connect()
 
 //this function will handle the requests and the responses
 export default async function handler(req,res){
-  if (req.method === 'POST') {
-    const { email, password } = req.body;
+  const { email, password } = req.body;
 
-    try {
-      // Check if user already exists
-      const existingUser = await User.findOne({ email });
-      if (existingUser) {
-        return res.status(409).json({ message: 'User already exists' });
-      }
+  const client = await MongoClient.connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
+  const db = client.db('myFirstDatabase');
+  const collection = db.collection('users');
+  const user = await collection.findOne({ email });
 
-      // Hash password
-      
-
-      // Create new user
-      const newUser = new User({ email, password });
-      await newUser.save();
-
-      // Generate token
-
-      // Return user data and token
-      res.status(201).json({ user: newUser});
-    } catch (error) {
-      res.status(500).json({ message: error.message });
-    }
-  } else {
-    res.status(405).json({ message: 'Method not allowed' });
+  if (user) {
+    res.status(400).json({ message: 'Email already in use' });
+    return;
   }
+
+  //hashing the password
+  const hashedPassword = await bcrypt.hash(password, 10)
+
+  // Insert new user into database
+  const result = await db.collection('users').insertOne({ email, password:hashedPassword });
+
+  if (!result) {
+    res.status(500).json({ message: 'Error registering user' });
+    return;
+  }
+
+  res.status(201).json({ message: 'User registered successfully' });
+
+
 }
 
 {/*import { connectToDatabase } from '../../lib/mongodb';

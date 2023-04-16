@@ -1,4 +1,5 @@
 import { MongoClient } from 'mongodb';
+import bcrypt from 'bcrypt'
 
 export default async function handler(req, res) {
   const { method } = req;
@@ -38,15 +39,22 @@ async function handlePostRequest(req, res) {
   });
   const db = client.db('myFirstDatabase');
   const collection = db.collection('users');
-  const user = await collection.findOne({ email,password });
+  const user = await collection.findOne({ email });
 
-  if (!user || user.password !== password) {
-    res.status(401).json({ message: 'Invalid email or password' });
-    return;
-  } else {
-    res.status(301);
-    res.setHeader('Location','/home');
-    res.end();
-    
+  if (!user) {
+    return res.status(401).json({ message: 'Invalid email' })
   }
+
+  const passwordMatch = await bcrypt.compare(password, user.password)
+
+  if (!passwordMatch) {
+    return res.status(401).json({ message: 'Invalid password' })
+  }
+  else{
+  res.status(301);
+  res.setHeader('Location','/home');
+  res.end();
+  }
+
+    
 }
