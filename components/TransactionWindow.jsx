@@ -1,10 +1,13 @@
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Link from 'next/link';
 import React from 'react'
 import { useState,useEffect } from 'react'
 
 
 function TransactionWindow(props) {
+
+
   const [title, setTitle] = useState('');
   const [amount, setAmount] = useState('');
   const [expenses, setExpenses] = useState([]);
@@ -39,11 +42,22 @@ function TransactionWindow(props) {
   window.localStorage.setItem('expense_list',JSON.stringify(expenses))
   },[expenses])
 
+  const totalIncome = () => {
+    let totalIncome = 0;
+    expenses.forEach((expense) =>{
+        totalIncome = totalIncome + parseInt(expense.amount)
+    })
+
+    return totalIncome;
+}
 
   return (
     <>
     <div className="main-expense-container">
       <div className="expense-left-section">
+        <div className="total-expense-details">
+          <h2>Total {props.form_title}: {totalIncome()}</h2>
+        </div>
       <h1>{props.form_title}</h1>
       <div className='expense-title-amount'>
         <label htmlFor="title">Title:</label>
@@ -56,7 +70,7 @@ function TransactionWindow(props) {
       <div className='expense-title-amount'>
         <label htmlFor="amount">Amount:</label>
         <input value={amount}  
-                    type="text" 
+                    type="number" 
                     name={'amount'} 
                     placeholder={props.amount_type}
                     onChange={handleAmountChange} />
@@ -64,6 +78,11 @@ function TransactionWindow(props) {
       <div className={props.btn_class} onClick={handleAddExpense}>
       {props.add_type}
       </div>
+      <Link href={props.nav_page}>
+      <div className={props.btn_class}>
+      {props.rev_page}
+      </div>
+      </Link>
       </div>
       {/*expenses.length > 0 && (
         <ul>

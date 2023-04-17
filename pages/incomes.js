@@ -4,7 +4,7 @@ import TransactionWindow from '../components/TransactionWindow'
 function incomes() {
   return (
     <>
-    <TransactionWindow btn_class="add-income-btn" form_title="Income" title_type="Income title" amount_type="Income amount" add_type="Add Income"/>
+    <TransactionWindow rev_page="Expenses" nav_page="/expenses" btn_class="add-income-btn" form_title="Income" title_type="Income title" amount_type="Income amount" add_type="Add Income"/>
     </>
   )
 }
