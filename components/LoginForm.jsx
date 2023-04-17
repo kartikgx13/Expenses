@@ -9,12 +9,6 @@ function LoginForm() {
 
     <div className="registration-form-container">
       <div className="registration-left-container">
-        <Image
-        width={1000}
-        height={1000}
-        src="/images/login_crop.png"
-        alt="login"
-        />
       </div>
     <div className="registraion-right-container">
     <h1>Login form</h1>
