@@ -1,11 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Chivo+Mono&family=Oswald:wght@200&display=swap');
+
 body{
   margin: 0;
   padding: 0;
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-	background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
+  font-family: "Chivo Mono";
+  
 }
 
 @keyframes gradient {
@@ -89,11 +90,13 @@ body{
 }
 
 .registration-form-container form div input::placeholder{
+  font-family: "Chivo Mono";
   font-weight:  500; 
   font-size: 0.75rem;
 }
 
 .registration-form-container form div input{
+  font-family: "Chivo Mono";
   font-size:  1rem; 
   padding:  1rem; 
   height:  56px; 
@@ -109,6 +112,7 @@ body{
 }
 
 button{
+  font-family: "Chivo Mono";
   width:  100%;
   text-align:  center; 
   padding:  15px 40px;
@@ -175,6 +179,9 @@ button:active{
 
 
 .login-main-section{
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -416,4 +423,147 @@ button:active{
 
 .add-income-btn:hover{
   background: green !important;
+}
+
+/* Navbar styling*/
+
+.main-navbar-section{
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 15%;
+}
+
+
+
+.nav-links a{
+  text-decoration: none;
+}
+
+
+
+.nav-links{
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  gap: 1rem;
+  
+}
+
+.navbar-container{
+  background-color: #6f5193;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.user-details{
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.user-image img:hover{
+  transition: 0.3s;
+  transform: scale(1.1);
+}
+
+.user-image{
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.user-name h1:hover{
+  cursor: pointer;
+  color: white;
+  transition: 0.3s;
+}
+
+.user-name p:hover{
+  cursor: pointer;
+  color: white;
+  transition: 0.3s;
+}
+
+.user-name p{
+  opacity: 0.6;
+  margin: 0;
+  padding: 0;
+}
+
+.user-name h1{
+  margin: 0;
+  padding: 0;
+}
+
+.user-name{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.hamburger-menu{
+  display: none;
+}
+
+@media screen and (max-width: 1100px){
+  .main-navbar-section{
+    position: fixed;
+    width: 100%;
+    height: auto;
+  }
+  .navbar-container{
+    flex-direction: row;
+  }
+  .nav-links a{
+    text-align: left;
+  }
+  .nav-links{
+    align-items: center;
+    width: 100%;
+    top: 0;
+    left: -100%;
+    z-index: -3;
+    position: absolute;
+    height: 100vh;
+    gap: 2rem;
+    background-color: rgb(182,157,230);
+    transition: 0.5s;
+  }
+
+  .nav-links.active{
+    left: 0;
+  }
+  
+  .sign-out-btn{
+    display: none;
+  }
+
+  .user-details{
+    margin: 1rem;
+    justify-content: flex-start;
+  }
+  .hamburger-menu{
+    margin: 1rem;
+    display: initial;
+  }
 }
