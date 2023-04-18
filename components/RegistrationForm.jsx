@@ -9,10 +9,16 @@ function RegistrationForm() {
 
     <div className="registration-form-container">
       <div className="registration-left-container">
-
+      <Image
+        src="/images/budget.png"
+        alt='expense-logo'
+        height={1000}
+        width={1000}
+        style={{width:"100%",height:"100%"}}
+        />
       </div>
     <div className="registraion-right-container">
-    <h1>Registration</h1>
+    <h1>Welcome</h1>
     <p>Please Register Yourself</p>
     <form action="/api/register" method="post">
       <div>

@@ -9,10 +9,17 @@ function LoginForm() {
 
     <div className="registration-form-container">
       <div className="registration-left-container">
+        <Image
+        src="/images/budget.png"
+        alt='expense-logo'
+        height={1000}
+        width={1000}
+        style={{width:"100%",height:"100%"}}
+        />
       </div>
     <div className="registraion-right-container">
-    <h1>Login form</h1>
-    <p>Hello User! Welcome Back</p>
+    <h1>Hello User!</h1>
+    <p>Welcome Back</p>
     <form action="/api/newlogin" method="post">
       <div>
       <FontAwesomeIcon
@@ -28,8 +35,8 @@ function LoginForm() {
       />
       <input type="password" placeholder="Enter your password" name="password"/>
       </div>
-      <div className='login-btn'>
-      <button type="submit">Login</button>
+      <div className='login-btn' style={{display:"flex",justifyContent:"flex-end",alignItems:"center"}}>
+      <button style={{width:"50%"}} type="submit">Login</button>
       </div>
     </form>
     </div>

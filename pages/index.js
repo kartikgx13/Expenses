@@ -7,19 +7,19 @@ export default function Home(){
     const [showLogin, setShowLogin] = useState(true);
     const [showRegister, setShowRegister] = useState(false);
     const [buttonColorLogin,setButtonColorLogin]=useState("rgb(182,157,230)");
-    const [buttonColorRegister,setButtonColorRegister]=useState("white");
+    const [buttonColorRegister,setButtonColorRegister]=useState("ghostwhite");
 
     const handleLoginClick = () => {
       setShowLogin(true);
       setShowRegister(false);
       setButtonColorLogin("rgb(182,157,230)");
-      setButtonColorRegister("white");
+      setButtonColorRegister("ghostwhite");
     };
 
     const handleRegisterClick = () => {
         setShowRegister(true);
         setShowLogin(false);
-        setButtonColorLogin("white")
+        setButtonColorLogin("ghostwhite")
         setButtonColorRegister("rgb(182,157,230)")
     };
   return(
