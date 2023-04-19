@@ -36,7 +36,7 @@ function RegistrationForm() {
       <input type="password" placeholder="Enter your password" name="password"/>
       </div>
       <div className='login-btn' style={{display:"flex",justifyContent:"flex-end",alignItems:"center"}}>
-      <button style={{width:"50%"}} type="submit">Register</button>
+      <button style={{width:"50%",display:"flex",justifyContent:"center",alignItems:"center"}} type="submit">Register</button>
       </div>
     </form>
     </div>
