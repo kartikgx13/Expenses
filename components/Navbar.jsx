@@ -84,7 +84,7 @@ function Navbar() {
             <ul className={click ? "nav-links active" : "nav-links"}>
                 <Link href="/dashboard" onClick={firstchange} style={{color:first,border:firstB}}><li><FontAwesomeIcon icon={faChartLine} width={50}/>Dashboard</li></Link>
                 <Link href="/expenses" onClick={secondchange} style={{color:second,border:secondB}}><li><FontAwesomeIcon icon={faMoneyBill} width={50}/>Expenses</li></Link>
-                <Link href="#" onClick={thirdchange} style={{color:third,border:thirdB}}><li><FontAwesomeIcon icon={faMoneyBillTrendUp} width={50}/>Income</li></Link>
+                <Link href="/incomes" onClick={thirdchange} style={{color:third,border:thirdB}}><li><FontAwesomeIcon icon={faMoneyBillTrendUp} width={50}/>Income</li></Link>
                 <Link href="#" onClick={fourthchange} style={{color:fourth,border:fourthB}}><li><FontAwesomeIcon icon={faCreditCard} width={50}/>Transactions</li></Link>
             </ul>
             <div className="sign-out-btn">

@@ -1,4 +1,4 @@
-import { faCalendar, faCircleDot, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faCalendar, faCircle, faCircleDot, faIndianRupee, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import React from 'react'
@@ -14,31 +14,6 @@ function TransactionWindow() {
   const [date,setDate]=useState('');
   const [expenses, setExpenses] = useState([]);
 
-
-  {/*const handleTitleChange = (e) => {
-    if(!title){
-      alert("Please enter a title!");
-      return;
-    }
-    setTitle(e.target.value);
-  };
-
-  const handleAmountChange = (e) => {
-    if (parseFloat(amount) <= 0) {
-      alert('Please enter a valid amount greater than zero!');
-      return;
-    }
-    setAmount(e.target.value);
-  };
-
-  const handleDateChange=(e)=>{
-    if(!date){
-      alert("Please enter a date!");
-      return;
-    }
-    setDate(e.target.value);
-  }*/}
-
   const handleSubmit = (e) => {
     e.preventDefault();
     // code to handle form submission
@@ -53,6 +28,12 @@ function TransactionWindow() {
       alert("Please enter all fields");
       return;
     }
+    
+    if(parseFloat(amount)<=0){
+      alert("Please enter a non-negative number");
+      return;
+    }
+
     setExpenses([...expenses, { title, amount,date }]);
     setTitle('');
     setAmount('');
@@ -119,10 +100,10 @@ function TransactionWindow() {
             <li key={index} className='expense-list-li'>
               <div className="expense-details">
                 <div className="expense-title">
-                <FontAwesomeIcon icon={faCircleDot} width={10}/>{expense.title}
+                <FontAwesomeIcon icon={faCircle} width={10} color='red'/>{expense.title}
                 </div>
                 <div className="other-details">
-                  <div><b>$</b>{expense.amount}</div> <div><FontAwesomeIcon icon={faCalendar} width={15}/>{expense.date}</div>
+                  <div><FontAwesomeIcon icon={faIndianRupee} width={13}/>{expense.amount}</div> <div><FontAwesomeIcon icon={faCalendar} width={15}/>{expense.date}</div>
                 </div>
               </div>
               <div className="delete-item" onClick={() => handleDeleteExpense(index)}>
@@ -138,7 +119,7 @@ function TransactionWindow() {
       )
       }
       <div className="total-expense-details">
-          <h2>Total Expenses: {totalIncome()}</h2>
+          <h2 style={{display:"flex",justifyContent:"center",alignItems:"center",gap:"0.5rem"}}>Total Expenses: <FontAwesomeIcon icon={faIndianRupee} width={13}/>{totalIncome()}</h2>
         </div>
     </div>
     </div>

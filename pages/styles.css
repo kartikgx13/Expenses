@@ -8,6 +8,10 @@ body{
   font-family: "Chivo Mono";
   
 }
+body::-webkit-scrollbar{
+  width: 0;
+  display: none;
+}
 
 @keyframes gradient {
 	0% {
@@ -125,6 +129,7 @@ button{
   border:  none;
   transition:  all .3s ease; 
   outline: 0; 
+  border-radius: 5px;
 }
 
 button:hover{
@@ -230,6 +235,7 @@ button:active{
 
 
 .expense-income-section{
+  height: 100vh;
 display: flex;
 }
 
@@ -329,10 +335,17 @@ display: flex;
   align-items: center;
   flex-direction: column;
   gap: 1rem;
+  overflow: auto;
+}
+
+.expense-list-array::-webkit-scrollbar{
+  height: 0;
+  width: 0;
+display: none;
 }
 
 .total-expense-details{
-  width: 80%;
+  width: 70%;
   height: 10%;
   display: flex;
   justify-content: flex-end;
@@ -348,7 +361,7 @@ display: flex;
  border-radius: 5px;
  border: 2px solid #6f5193;
  padding: 1rem;
- width: 100%;
+ width: 85%;
  display: flex;
  justify-content: space-between;
  align-items: center;
@@ -392,7 +405,7 @@ display: flex;
 
 @media screen and (max-width: 1100px){
   .expense-income-section{
-    height: 100vh;
+   height: 100vh;
    flex-direction: column;
   }
 
@@ -415,7 +428,12 @@ display: flex;
   }
 
   .expense-list-array{
+    width: 90%;
     height: auto;
+  }
+
+  .expense-list-li{
+    width: 85%;
   }
 
   .total-expense-details{
@@ -457,12 +475,10 @@ display: flex;
 /* Navbar styling*/
 
 .main-navbar-section{
-  
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
   width: 20%;
 }
 
@@ -612,4 +628,17 @@ display: flex;
   .user-name h1{
     font-size: 1rem;
   }
+}
+
+.add-income-btn:hover{
+  background-color: rgb(0, 153, 0);
+}
+
+/*expenses-income styling ends here*/
+
+/*dashboard styling starts here*/
+
+.main-dashboard-section{
+  display: flex;
+  height: 100vh;
 }
