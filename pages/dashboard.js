@@ -115,11 +115,26 @@ function dashboard() {
     }
   }
 
+  const totalfood=()=>{
+    const totalamountbycategory=expenses.reduce((acc,{category,amount})=>{
+      if(!acc[category]){
+        acc[category]=0
+      }
+      acc[category] += parseInt(amount);
+      return acc;
+    },{});
+
+    console.log(totalamountbycategory)
+  }
+
+  
+
   
   return (
     <>
     <section className="main-dashboard-section">
     <Navbar/>
+    {totalfood()}
     </section>
     </>
   )

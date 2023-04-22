@@ -24,7 +24,7 @@ function TransactionIncome() {
     };
   
     const handleAddIncome = () => {
-      if(!title || !amount || !date){
+      if(!title || !amount || !date || !category){
         alert("Please enter all fields");
         return;
       }
