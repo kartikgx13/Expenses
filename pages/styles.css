@@ -525,6 +525,10 @@ display: none;
   .expense-details{
     gap: 0.5rem;
   }
+
+  .expense-left-section form div select{
+    font-size: 1rem;
+  }
 }
 
 

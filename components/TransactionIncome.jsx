@@ -128,7 +128,7 @@ function TransactionIncome() {
       </select>
       </div>
 
-      <button className='add-income-btn' style={{margin:"0",width:"auto",borderRadius:"5px",padding:"1rem",fontSize:"1rem"}} type="submit" onClick={handleAddIncome}>
+      <button className='add-income-btn' style={{margin:"0",width:"auto",borderRadius:"5px",padding:"1rem"}} type="submit" onClick={handleAddIncome}>
         Add Income
       </button>
     </form>
@@ -167,7 +167,7 @@ function TransactionIncome() {
       }
       <div className="total-expense-details">
       <div className="delete-all-btn">
-            <button onClick={deleteAllItems} style={{margin:"0",width:"auto",borderRadius:"5px",padding:"1rem",fontSize:"1rem"}}>Delete all</button>
+            <button onClick={deleteAllItems} style={{margin:"0",width:"auto",borderRadius:"5px",padding:"1rem"}}>Delete all</button>
       </div>
       <h2 style={{display:"flex",justifyContent:"center",alignItems:"center",gap:"0.5rem"}}>Total Expenses: <FontAwesomeIcon icon={faIndianRupee} width={13}/>{totalIncome()}</h2> 
       </div>
