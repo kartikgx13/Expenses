@@ -1,4 +1,4 @@
-import { faCalendar, faCircle, faCircleDot, faIndianRupee, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faBitcoinSign, faBuildingColumns, faCalendar, faCircle, faCircleDot, faDisplay, faIndianRupee, faMoneyBill, faMoneyBillTrendUp, faMoneyCheck, faPiggyBank, faTrash, faUser, faUserTag, faUserTie } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import React from 'react'
@@ -10,15 +10,17 @@ function TransactionIncome() {
     const [title, setTitle] = useState('');
     const [amount, setAmount] = useState('');
     const [date,setDate]=useState('');
+    const [category,setCategory]=useState('');
     const [income, setIncome] = useState([]);
   
     const handleSubmit = (e) => {
       e.preventDefault();
       // code to handle form submission
-      console.log(`Text: ${title}, Amount: ${amount}, Date: ${date}`);
+      console.log(`Text: ${title}, Amount: ${amount}, Date: ${date},Category:${category}`);
       setTitle('');
       setAmount('');
       setDate('');
+      setCategory('');
     };
   
     const handleAddIncome = () => {
@@ -32,16 +34,23 @@ function TransactionIncome() {
         return;
       }
   
-      setIncome([...income, { title, amount,date }]);
+      setIncome([...income, { title, amount,date,category }]);
       setTitle('');
       setAmount('');
       setDate('');
+      setCategory('');
     };
     const handleDeleteIncome = (index) => {
       const newIncomes = [...income];
       newIncomes.splice(index, 1);
       setIncome(newIncomes);
     };
+
+    const deleteAllItems=()=>{
+      const newIncomes = [...income];
+      newIncomes.splice(0,newIncomes.length);
+      setIncome(newIncomes)
+    }
   
     useEffect(()=>{
       const data=window.localStorage.getItem('income_list')
@@ -62,6 +71,27 @@ function TransactionIncome() {
   
       return totalIncome;
   }
+
+  const categoryIconIncome = (category) =>{
+    switch(category) {
+        case 'salary':
+            return <FontAwesomeIcon icon={faMoneyBill} height={50} width={50}/>;
+        case 'freelancing':
+            return <FontAwesomeIcon icon={faUserTie} height={50} width={50}/>;
+        case 'investments':
+            return <FontAwesomeIcon icon={faMoneyCheck} height={50} width={50}/>;
+        case 'stocks':
+            return <FontAwesomeIcon icon={faMoneyBillTrendUp} height={50} width={50}/>;
+        case 'bitcoin':
+            return <FontAwesomeIcon icon={faBitcoinSign} height={50} width={50}/>;
+        case 'bank':
+            return <FontAwesomeIcon icon={faBuildingColumns} height={50} width={50}/>;
+        case 'other':
+            return <FontAwesomeIcon icon={faPiggyBank} height={50} width={50}/>;
+        default:
+            return ''
+    }
+}
 
   return (
     <>
@@ -84,6 +114,19 @@ function TransactionIncome() {
       <input type="date"  placeholder='Enter Date' required id="date" value={date} onChange={(e) => setDate(e.target.value)} />
       </div>
 
+      <div>
+      <select required value={category} name="category" id="category" onChange={(e) => setCategory(e.target.value)}>
+                    <option value="" disabled >Select Option</option>
+                    <option value="salary">Salary</option>
+                    <option value="freelancing">Freelancing</option>
+                    <option value="investments">Investments</option>
+                    <option value="stocks">Stocks</option>
+                    <option value="bitcoin">Bitcoin</option>
+                    <option value="bank">Bank</option>  
+                    <option value="other">Other</option>  
+      </select>
+      </div>
+
       <button className='add-income-btn' style={{margin:"0",width:"auto",borderRadius:"5px",padding:"1rem",fontSize:"1rem"}} type="submit" onClick={handleAddIncome}>
         Add Income
       </button>
@@ -96,6 +139,10 @@ function TransactionIncome() {
         <ul className='expense-list-array'>
           {income.map((income, index) => (
             <li key={index} className='expense-list-li'>
+              <div className="expense-income-icon">
+                 {categoryIconIncome(income.category)}
+              </div>
+              <div className="expense-content">
               <div className="expense-details">
                 <div className="expense-title">
                 <FontAwesomeIcon icon={faCircle} width={10} color='green'/>{income.title}
@@ -111,14 +158,18 @@ function TransactionIncome() {
                height={50}
                />
               </div>
+              </div>
             </li>
           ))}
         </ul>
       )
       }
       <div className="total-expense-details">
-          <h2 style={{display:"flex",justifyContent:"center",alignItems:"center",gap:"0.5rem"}}>Total Income: <FontAwesomeIcon icon={faIndianRupee} width={13}/>{totalIncome()}</h2>
-        </div>
+      <div className="delete-all-btn">
+            <button onClick={deleteAllItems} style={{margin:"0",width:"auto",borderRadius:"5px",padding:"1rem",fontSize:"1rem"}}>Delete all</button>
+      </div>
+      <h2 style={{display:"flex",justifyContent:"center",alignItems:"center",gap:"0.5rem"}}>Total Expenses: <FontAwesomeIcon icon={faIndianRupee} width={13}/>{totalIncome()}</h2> 
+      </div>
     </div>
     </div>
     </>

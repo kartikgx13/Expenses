@@ -1,4 +1,4 @@
-import { faCalendar, faCircle, faCircleDot, faIndianRupee, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faBowlFood, faCalendar, faCarSide, faCartShopping, faCircle, faCircleDot, faIndianRupee, faMoneyBill, faNotesMedical, faPiggyBank, faSchool, faShirt, faTrash, faTv } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import React from 'react'
@@ -12,6 +12,7 @@ function TransactionWindow() {
   const [title, setTitle] = useState('');
   const [amount, setAmount] = useState('');
   const [date,setDate]=useState('');
+  const [category,setCategory]=useState('');
   const [expenses, setExpenses] = useState([]);
 
   const handleSubmit = (e) => {
@@ -21,6 +22,7 @@ function TransactionWindow() {
     setTitle('');
     setAmount('');
     setDate('');
+    setCategory('');
   };
 
   const handleAddExpense = () => {
@@ -34,16 +36,23 @@ function TransactionWindow() {
       return;
     }
 
-    setExpenses([...expenses, { title, amount,date }]);
+    setExpenses([...expenses, { title, amount,date,category }]);
     setTitle('');
     setAmount('');
     setDate('');
+    setCategory('');
   };
   const handleDeleteExpense = (index) => {
     const newExpenses = [...expenses];
     newExpenses.splice(index, 1);
     setExpenses(newExpenses);
   };
+
+  const deleteAllItems=()=>{
+    const newExpenses = [...expenses];
+    newExpenses.splice(0,newExpenses.length);
+    setExpenses(newExpenses)
+  }
 
   useEffect(()=>{
     const data=window.localStorage.getItem('expense_list')
@@ -63,6 +72,29 @@ function TransactionWindow() {
     })
 
     return totalIncome;
+}
+
+const categoryIconExpense = (category) => {
+  switch (category) {
+      case 'education':
+          return <FontAwesomeIcon icon={faSchool} height={50} width={50}/>;
+      case 'groceries':
+          return <FontAwesomeIcon icon={faCartShopping} height={50} width={50}/>;
+      case 'health':
+          return <FontAwesomeIcon icon={faNotesMedical} height={50} width={50}/>;
+      case 'subscriptions':
+          return <FontAwesomeIcon icon={faTv} height={50} width={50}/>;
+      case 'food':
+          return <FontAwesomeIcon icon={faBowlFood} height={50} width={50}/>;
+      case 'clothing':
+          return <FontAwesomeIcon icon={faShirt} height={50} width={50}/>;
+      case 'travelling':
+          return <FontAwesomeIcon icon={faCarSide} height={50} width={50}/>;
+      case 'other':
+          return <FontAwesomeIcon icon={faPiggyBank} height={50} width={50}/>;
+      default:
+          return ''
+  }
 }
 
   return (
@@ -86,6 +118,20 @@ function TransactionWindow() {
       <input type="date"  placeholder='Enter Date' required id="date" value={date} onChange={(e) => setDate(e.target.value)} />
       </div>
 
+      <div>
+      <select required value={category} name="category" id="category" onChange={(e) => setCategory(e.target.value)}>
+                    <option value="" disabled >Select Option</option>
+                    <option value="education">Education</option>
+                    <option value="groceries">Groceries</option>
+                    <option value="health">Health</option>
+                    <option value="subscriptions">Subscriptions</option>
+                    <option value="food">Food</option>
+                    <option value="clothing">Clothing</option>  
+                    <option value="travelling">Travelling</option>  
+                    <option value="other">Other</option>  
+      </select>
+      </div>
+
       <button className='add-expense-btn' style={{margin:"0",width:"auto",borderRadius:"5px",padding:"1rem",fontSize:"1rem"}} type="submit" onClick={handleAddExpense}>
         Add Expense
       </button>
@@ -98,6 +144,10 @@ function TransactionWindow() {
         <ul className='expense-list-array'>
           {expenses.map((expense, index) => (
             <li key={index} className='expense-list-li'>
+              <div className="expense-income-icon">
+                {categoryIconExpense(expense.category)}
+              </div>
+              <div className="expense-content">
               <div className="expense-details">
                 <div className="expense-title">
                 <FontAwesomeIcon icon={faCircle} width={10} color='red'/>{expense.title}
@@ -113,14 +163,18 @@ function TransactionWindow() {
                height={50}
                />
               </div>
+              </div>
             </li>
           ))}
         </ul>
       )
       }
       <div className="total-expense-details">
-          <h2 style={{display:"flex",justifyContent:"center",alignItems:"center",gap:"0.5rem"}}>Total Expenses: <FontAwesomeIcon icon={faIndianRupee} width={13}/>{totalIncome()}</h2>
-        </div>
+      <div className="delete-all-btn">
+            <button onClick={deleteAllItems} style={{margin:"0",width:"auto",borderRadius:"5px",padding:"1rem",fontSize:"1rem"}}>Delete all</button>
+      </div>
+      <h2 style={{display:"flex",justifyContent:"center",alignItems:"center",gap:"0.5rem"}}>Total Expenses: <FontAwesomeIcon icon={faIndianRupee} width={13}/>{totalIncome()}</h2> 
+      </div>
     </div>
     </div>
     </>

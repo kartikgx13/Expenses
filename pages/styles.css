@@ -299,6 +299,13 @@ display: flex;
   gap: 2rem;
 }
 
+.expense-left-section form select{
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
 .expense-left-section{
   display: flex;
   justify-content: center;
@@ -329,7 +336,7 @@ display: flex;
   margin-top: 2rem;
   padding: 0;
   list-style-type: none;
-  width: 80%;
+  width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -348,7 +355,8 @@ display: none;
   width: 70%;
   height: 10%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
   align-items: center;
 }
 
@@ -357,18 +365,41 @@ display: none;
   margin: 0;
 }
 
+.delete-all-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .expense-list-li{
+ padding: 0.5rem;
  border-radius: 5px;
  border: 2px solid #6f5193;
- padding: 1rem;
  width: 85%;
  display: flex;
- justify-content: space-between;
+ justify-content: flex-start;
  align-items: center;
  background-color: #ddc1ff;
+ gap: 0.5rem;
+}
+
+.expense-income-icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  width: 10%;
+}
+
+.expense-content{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
 }
 
 .expense-details{
+  width: 90%;
   gap: 0.5rem;
   display: flex;
   justify-content: center;
@@ -389,7 +420,7 @@ display: none;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .other-details div{
@@ -400,6 +431,10 @@ display: none;
 }
 
 .delete-item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
   font-size: 1.5rem;
 }
 
@@ -437,6 +472,7 @@ display: none;
   }
 
   .total-expense-details{
+    flex-direction: column;
     justify-content: center;
     height: auto;
   }
@@ -450,6 +486,7 @@ display: none;
   }
 
   .other-details{
+    gap: 0.75rem;
     font-size: 1rem;
   }
 
@@ -467,6 +504,19 @@ display: none;
 
   .expense-left-section form div label{
     font-size: 1rem;
+  }
+
+  .expense-left-section form div{
+    justify-content: center;
+  }
+
+  .expense-income-icon{
+    font-size: 1rem;
+    width: 10%;
+  }
+
+  .expense-details{
+    gap: 0;
   }
 }
 

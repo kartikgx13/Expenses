@@ -93,6 +93,28 @@ function dashboard() {
     
   }
 
+  const showHistoryExpenses=()=>{
+    const history=expenses.slice(-2);
+
+    if (history.length===0){
+       return <div>No recent Transactions</div>
+    }
+    else{
+      return console.log(history)
+    }
+  }
+
+  const showHistoryIncome=()=>{
+    const history=income.slice(-2);
+
+    if (history.length===0){
+       return <div>No recent Transactions</div>
+    }
+    else{
+      return console.log(history)
+    }
+  }
+
   
   return (
     <>
