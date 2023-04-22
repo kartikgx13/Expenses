@@ -119,6 +119,7 @@ const categoryIconExpense = (category) => {
       </div>
 
       <div>
+      <label htmlFor="category">Category</label>
       <select required value={category} name="category" id="category" onChange={(e) => setCategory(e.target.value)}>
                     <option value="" disabled >Select Option</option>
                     <option value="education">Education</option>
@@ -160,7 +161,7 @@ const categoryIconExpense = (category) => {
                <FontAwesomeIcon
                icon={faTrash}
                width={50}
-               height={50}
+               height={100}
                />
               </div>
               </div>

@@ -115,6 +115,7 @@ function TransactionIncome() {
       </div>
 
       <div>
+        <label htmlFor="category">Category</label>
       <select required value={category} name="category" id="category" onChange={(e) => setCategory(e.target.value)}>
                     <option value="" disabled >Select Option</option>
                     <option value="salary">Salary</option>
