@@ -703,3 +703,8 @@ display: none;
   display: flex;
   height: 100vh;
 }
+
+.main-dashboard-container{
+  height: 100%;
+  width: 100%;
+}
