@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import { useEffect } from 'react'
 import { useState } from 'react';
+import BarChartDemo from '../components/BarGraph';
 
 function dashboard() {
   const [income, setIncome] = useState([]);
@@ -124,17 +125,35 @@ function dashboard() {
       return acc;
     },{});
 
-    console.log(totalamountbycategory)
+    return totalamountbycategory;
+  }
+
+ const mappingLabels=()=>{
+    const keys = Object.keys(totalfood());
+    const arrKeys = Object.values(keys);
+    console.log(typeof(arrKeys));
+    return arrKeys;
+  }
+
+  const mappingData=()=>{
+    const data = Object.values(totalfood());
+    const arrData = Object.values(data);
+    console.log(typeof(arrData))
+    return arrData;
+    
   }
 
   
 
-  
+
+
   return (
     <>
     <section className="main-dashboard-section">
     <Navbar/>
-    {totalfood()}
+    <div className="main-dashboard-container">
+      {/*<BarChartDemo labels={mappingLabels()} heading="Total Expense" data={mappingData()}/>*/}
+    </div>
     </section>
     </>
   )

@@ -4,6 +4,7 @@ import Link from 'next/link'
 import React from 'react'
 import Image from 'next/image'
 import { useState } from 'react'
+import { useEffect } from 'react'
 
 function Navbar() {
   const [first,setFirst]=useState("black")
@@ -62,6 +63,50 @@ function Navbar() {
     setThirdB("none")
     setFourthB("0 0 0 2px solid #452c63")
   }
+
+  useEffect(()=>{
+    const data=window.localStorage.getItem('nav-color1')
+    if (data!==null){
+        setFirst(JSON.parse(data))
+    }
+    },[])
+
+  useEffect(()=>{
+  window.localStorage.setItem('nav-color1',JSON.stringify(first))
+  },[first])
+
+  useEffect(()=>{
+    const data=window.localStorage.getItem('nav-color2')
+    if (data!==null){
+        setSecond(JSON.parse(data))
+    }
+    },[])
+
+  useEffect(()=>{
+  window.localStorage.setItem('nav-color2',JSON.stringify(second))
+  },[second])
+
+  useEffect(()=>{
+    const data=window.localStorage.getItem('nav-color3')
+    if (data!==null){
+        setThird(JSON.parse(data))
+    }
+    },[])
+
+  useEffect(()=>{
+  window.localStorage.setItem('nav-color3',JSON.stringify(third))
+  },[third])
+
+  useEffect(()=>{
+    const data=window.localStorage.getItem('nav-color4')
+    if (data!==null){
+        setFourth(JSON.parse(data))
+    }
+    },[])
+
+  useEffect(()=>{
+  window.localStorage.setItem('nav-color4',JSON.stringify(fourth))
+  },[fourth])
 
 
   return (
