@@ -809,21 +809,41 @@ tr:nth-child(odd):hover td {
 
 @media screen and (max-width: 1100px){
   .main-transaction-container{
+    margin-top: 5rem;
     flex-direction: column;
   }
 
   .debit-container{
-    height: auto;
+    height: 50%;
     width: 100%;
   }
 
   .credit-container{
-    height: auto;
+    height: 50%;
     width: 100%;
   }
   
   .tbl-content{
-    overflow: unset;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .tbl-header{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  th{
+    font-size: 0.5rem;
+    padding: 1rem;
+  }
+  td{
+    font-size: 0.5rem;
+    padding: 0.5rem;
   }
   
 }
