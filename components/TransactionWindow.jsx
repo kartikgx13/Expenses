@@ -105,12 +105,12 @@ const categoryIconExpense = (category) => {
       <form onSubmit={handleSubmit}>
       <div>
       <label htmlFor="text">Title</label>
-      <input type="text" placeholder='Enter Title' required minLength={1} maxLength={20} id="title" value={title} onChange={(e) => setTitle(e.target.value)} />
+      <input type="text"  placeholder='Enter Title' required minLength={1} maxLength={20} id="title" value={title} onChange={(e) => setTitle(e.target.value)} />
       </div>
 
       <div>
       <label htmlFor="amount">Amount</label>
-      <input type="number" placeholder='Enter Amount' required id="amount" min={0} max={100} value={amount} onChange={(e) => setAmount(e.target.value)} />
+      <input type="number"  placeholder='Enter Amount' required id="amount" min={0} max={100} value={amount} onChange={(e) => setAmount(e.target.value)} />
       </div>
 
       <div>

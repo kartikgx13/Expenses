@@ -9,8 +9,10 @@ const BarChartDemo = (props) => {
         datasets: [
             {
                 label: " ",
-                backgroundColor: ["blue"],
-                data:[]
+                data:[],
+                fill: true,
+                borderColor: props.color,
+                backgroundColor: props.bgcolor,
             }
         ]
     });
@@ -21,8 +23,10 @@ const BarChartDemo = (props) => {
             datasets: [
                 {
                     label: props.heading,
-                    backgroundColor: ["blue"],
-                    data: props.data
+                    data: props.data,
+                    fill: true,
+                    borderColor: props.color,
+                    backgroundColor: props.bgcolor,
                 }
             ]
         });
@@ -72,7 +76,7 @@ const BarChartDemo = (props) => {
     return (
         <div>
             <div className="card">
-                <Chart type="bar" data={basicData} options={basicOptions} />
+                <Chart type="line" data={basicData} options={basicOptions} />
             </div>
         </div>
     )
