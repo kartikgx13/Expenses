@@ -7,10 +7,10 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 
 function Navbar() {
-  const [first,setFirst]=useState("black")
-  const [second,setSecond]=useState("black")
-  const [third,setThird]=useState("black")
-  const [fourth,setFourth]=useState("black")
+  const [first,setFirst]=useState("white")
+  const [second,setSecond]=useState("white")
+  const [third,setThird]=useState("white")
+  const [fourth,setFourth]=useState("white")
 
   const [firstB,setFirstB]=useState("none")
   const [secondB,setSecondB]=useState("none")
@@ -21,10 +21,10 @@ function Navbar() {
   const handleClick=()=>setClick(!click)
 
   const firstchange=()=>{
-    setFirst("white");
-    setSecond("black")
-    setThird("black")
-    setFourth("black")
+    setFirst("#3F72AF");
+    setSecond("white")
+    setThird("white")
+    setFourth("white")
     setFirstB("0 0 0 2px solid #452c63")
     setSecondB("none")
     setThirdB("none")
@@ -32,10 +32,10 @@ function Navbar() {
   }
 
   const secondchange=()=>{
-    setFirst("black");
-    setSecond("white")
-    setThird("black")
-    setFourth("black")
+    setFirst("white");
+    setSecond("#3F72AF")
+    setThird("white")
+    setFourth("white")
     setFirstB("none")
     setSecondB("0 0 0 2px solid #452c63")
     setThirdB("none")
@@ -43,10 +43,10 @@ function Navbar() {
   }
 
   const thirdchange=()=>{
-    setFirst("black");
-    setSecond("black")
-    setThird("white")
-    setFourth("black")
+    setFirst("white");
+    setSecond("white")
+    setThird("#3F72AF")
+    setFourth("white")
     setFirstB("none")
     setSecondB("none")
     setThirdB("0 0 0 2px solid #452c63")
@@ -54,10 +54,10 @@ function Navbar() {
   }
 
   const fourthchange=()=>{
-    setFirst("black");
-    setSecond("black")
-    setThird("black")
-    setFourth("white")
+    setFirst("white");
+    setSecond("white")
+    setThird("white")
+    setFourth("#3F72AF")
     setFirstB("none")
     setSecondB("none")
     setThirdB("none")

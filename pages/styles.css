@@ -1,5 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Chivo+Mono&family=Oswald:wght@200&display=swap');
 
+:root{
+  --btn-color1: #6680ff;
+  --nav-color1: #171f8a;
+  --mobile-nav1: #c2cef2;
+
+  --nav-color2: #003068;
+  --btn-color2: #3F72AF;
+  --list-items: #DBE2EF;
+}
+
+
 body{
   margin: 0;
   padding: 0;
@@ -88,9 +99,9 @@ body::-webkit-scrollbar{
 }
 
 .registration-form-container form div input:focus{
-  border-bottom:  solid 3px rgb(182,157,230); 
+  border-bottom:  solid 3px var(--btn-color2); 
   outline: 0; 
-  box-shadow:  0 2px 6px -8px rgba(rgb(182,157,230), .45);
+  box-shadow:  0 2px 6px -8px rgba(var(--btn-color2), .45);
 }
 
 .registration-form-container form div input::placeholder{
@@ -121,7 +132,7 @@ button{
   text-align:  center; 
   padding:  15px 40px;
   margin:  5px; 
-  background-color:  rgb(182,157,230); 
+  background-color:  var(--btn-color2); 
   color:  black; 
   font-size:  0.75rem;
   font-weight:  500; 
@@ -134,7 +145,7 @@ button{
 
 button:hover{
   transform:  translateY(-3px);
-  box-shadow:  0 2px 6px -1px rgba(rgb(182,157,230), .65);
+  box-shadow:  0 2px 6px -1px rgba(var(--btn-color2), .65);
 }
 
 button:active{
@@ -257,9 +268,9 @@ display: flex;
 }
 
 .expense-left-section form div input:focus{
-  border-bottom:  solid 3px rgb(182,157,230); 
+  border-bottom:  solid 3px var(--btn-color2); 
   outline: 0; 
-  box-shadow:  0 2px 6px -8px rgba(rgb(182,157,230), .45);
+  box-shadow:  0 2px 6px -8px rgba(var(--btn-color2), .45);
 }
 
 
@@ -380,13 +391,13 @@ display: none;
 .expense-list-li{
  padding: 0.5rem;
  border-radius: 5px;
- border: 2px solid #6f5193;
  width: 85%;
  display: flex;
  justify-content: flex-start;
  align-items: center;
- background-color: #ddc1ff;
+ background-color: var(--list-items);
  gap: 1rem;
+ box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .expense-income-icon{
@@ -396,6 +407,22 @@ display: none;
   align-items: center;
   font-size: 2rem;
   width: 10%;
+}
+
+.expense-income-icon svg:hover{
+  transform: translateY(-4px);
+}
+
+.expense-income-icon svg{
+  box-sizing: border-box;
+  cursor: pointer;
+  padding: 1rem;
+  height: 40%;
+  width: 40%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 50%;
+  background-color: #F9F7F7;
+  transition: 0.4s;
 }
 
 .expense-content{
@@ -420,6 +447,7 @@ display: none;
   justify-content: center;
   align-items: center;
   gap: 5px;
+  font-weight: bold;
 }
 
 .other-details{
@@ -428,6 +456,7 @@ display: none;
   justify-content: center;
   align-items: center;
   gap: 1.5rem;
+  opacity: 0.6;
 }
 
 .other-details div{
@@ -435,6 +464,15 @@ display: none;
   align-items: center;
   display: flex;
   gap: 8px;
+}
+
+.delete-item svg:hover{
+  transform: translateY(-4px);
+}
+
+.delete-item svg{
+  width: 30%;
+  height: 30%;
 }
 
 .delete-item{
@@ -472,17 +510,22 @@ display: none;
 
   .expense-list-array{
     width: 90%;
-    height: auto;
+    height: 70%;
   }
 
   .expense-list-li{
     width: 85%;
   }
 
+  .total-expense-details h2{
+    font-size: 1rem;
+  }
+
   .total-expense-details{
     flex-direction: column;
     justify-content: center;
-    height: auto;
+    height: 30%;
+    width: 80%;
   }
 
   .expense-right-section p{
@@ -530,6 +573,10 @@ display: none;
   .expense-left-section form div select{
     font-size: 1rem;
   }
+
+  .expense-income-icon svg{
+    padding: 0.5rem;
+  }
 }
 
 
@@ -568,7 +615,7 @@ display: none;
 }
 
 .navbar-container{
-  background-color: #6f5193;
+  background-color: var(--nav-color2);
   height: 100%;
   width: 100%;
   display: flex;
@@ -658,7 +705,7 @@ display: none;
     position: absolute;
     height: 100vh;
     gap: 2rem;
-    background-color: rgba(182,157,230,0.9);
+    background-color: #99CCED;
     transition: 0.5s;
   }
 
@@ -1075,7 +1122,7 @@ table{
   cursor: pointer;
   border-radius: 10px 10px 0 0;
   width: 90%;
-  background-color: rgb(182,157,230);
+  background-color: var(--btn-color2);
  }
 .tbl-content{
   cursor: pointer;
@@ -1083,7 +1130,7 @@ table{
   height: 50%;
   overflow-x: auto;
   margin-top: 0px;
-  border-bottom: 1px solid rgb(182,157,230);
+  border-bottom: 1px solid var(--btn-color2);
   border-radius: 0 0 10px 10px;
 }
 th{
