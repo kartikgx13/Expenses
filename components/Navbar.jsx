@@ -21,7 +21,7 @@ function Navbar() {
   const handleClick=()=>setClick(!click)
 
   const firstchange=()=>{
-    setFirst("#3F72AF");
+    setFirst("#FAEDF0");
     setSecond("white")
     setThird("white")
     setFourth("white")
@@ -33,7 +33,7 @@ function Navbar() {
 
   const secondchange=()=>{
     setFirst("white");
-    setSecond("#3F72AF")
+    setSecond("#FAEDF0")
     setThird("white")
     setFourth("white")
     setFirstB("none")
@@ -45,7 +45,7 @@ function Navbar() {
   const thirdchange=()=>{
     setFirst("white");
     setSecond("white")
-    setThird("#3F72AF")
+    setThird("#FAEDF0")
     setFourth("white")
     setFirstB("none")
     setSecondB("none")
@@ -57,7 +57,7 @@ function Navbar() {
     setFirst("white");
     setSecond("white")
     setThird("white")
-    setFourth("#3F72AF")
+    setFourth("#FAEDF0")
     setFirstB("none")
     setSecondB("none")
     setThirdB("none")
