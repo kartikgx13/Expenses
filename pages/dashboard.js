@@ -6,7 +6,7 @@ import BarChartDemo from '../components/BarGraph';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBitcoinSign, faBowlFood, faBuildingColumns, faCalendar, faCarSide, faCartShopping, faCircle, faCircleDot, faIndianRupee, faMoneyBill, faMoneyBillTrendUp, faMoneyCheck, faNotesMedical, faPiggyBank, faSchool, faShirt, faTrash, faTv, faUserTie } from '@fortawesome/free-solid-svg-icons';
-
+import Link from 'next/link';
 
 function dashboard() {
   const [income, setIncome] = useState([]);
@@ -268,7 +268,7 @@ function dashboard() {
         <div className="recent-history">
          <div className="recent-heading">
           <h3>Latest Spendings</h3>
-          <h3 style={{opacity:"0.6",cursor:"pointer"}}>View All</h3>
+          <Link href="/expenses"><h3 style={{opacity:"0.6",cursor:"pointer"}}>View All</h3></Link>
          </div>
          <div className="seperator"></div>
          <div className="history-list-container">
@@ -299,7 +299,7 @@ function dashboard() {
         <div className="recent-history">
          <div className="recent-heading">
           <h3>Latest Earnings</h3>
-          <h3 style={{opacity:"0.6",cursor:"pointer"}}>View All</h3>
+          <Link href="/incomes"><h3 style={{opacity:"0.6",cursor:"pointer"}}>View All</h3></Link>
          </div>
          <div className="seperator"></div>
          <div className="history-list-container">

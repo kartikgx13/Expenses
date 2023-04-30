@@ -962,6 +962,11 @@ margin: 0;
   align-items: center;
 }
 
+.recent-heading a{
+  text-decoration: none;
+  color: black;
+}
+
 .recent-heading h3{
   margin: 0;
 }
@@ -1170,6 +1175,11 @@ margin: 0;
 
   .title-date-details{
     font-size: 0.75rem;
+  }
+
+  .history-amount svg{
+   height: 11px;
+   width: 11px;
   }
 }
 
