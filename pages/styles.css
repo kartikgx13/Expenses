@@ -772,9 +772,9 @@ display: none;
   }
   
   .sign-out-btn{
-    align-items: center;
+    align-items: flex-start;
     width: 100%;
-    top: 500%;
+    top: 1100%;
     left: -100%;
     z-index: -3;
     position: absolute;
