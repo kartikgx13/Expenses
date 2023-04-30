@@ -1,5 +1,5 @@
 import React from 'react'
-import { faEnvelope, faLock, faMailBulk } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope, faLock, faMailBulk, faUser } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Image from 'next/image'
 import { useState } from 'react'
@@ -7,6 +7,7 @@ import { useState } from 'react'
 function RegistrationForm() {
   const [password, setPassword] = useState('');
   const [isValid, setIsValid] = useState(false);
+  const [username,setUserName]=useState('');
 
   const handlePasswordChange = (event) => {
     const passwordValue = event.target.value;
@@ -44,6 +45,13 @@ function RegistrationForm() {
     <h1>Welcome</h1>
     <p>Please Register Yourself</p>
     <form action="/api/register" method="post" onSubmit={handlesubmit}>
+    <div>
+      <FontAwesomeIcon
+      icon={faUser}
+      width={50}
+      />
+      <input type="text" value={username} onChange={(e) => setUserName(e.target.value)} required placeholder="Enter username" name="username"/>
+      </div>
       <div>
       <FontAwesomeIcon
       icon={faEnvelope}

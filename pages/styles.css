@@ -16,11 +16,10 @@
   --right-container: white;
   --mobile-nav1: #8874a3;*/
 
-  --nav-color2: #781C68;
-  --btn-color2:  #319DA0;
-  --list-items: #00ABB3;
-  --right-container: white;
-  --mobile-nav1: hsla(310, 100%, 73%, 0.637);
+  --nav-color2: #78a6c8;
+  --btn-color2:  #326789;
+  --list-items: #e9eef2;
+  --right-container: transparent;
 }
 
 
@@ -30,6 +29,7 @@ body{
   width: 100vw;
   height: 100vh;
   font-family: "Chivo Mono";
+  background-color: ghostwhite;
   
 }
 body::-webkit-scrollbar{
@@ -147,7 +147,7 @@ button{
   padding:  15px 40px;
   margin:  5px; 
   background-color:  var(--btn-color2); 
-  color:  black; 
+  color:  white; 
   font-size:  0.75rem;
   font-weight:  500; 
   box-shadow:  0px 2px 6px -1px rgba(0,0,0,.13); 
@@ -185,7 +185,7 @@ button:active{
     align-items: center;
     flex-direction: column;
     width: 35%;
-    background-color: ghostwhite;
+    background-color: var(--list-items);
 }
 
 
@@ -253,6 +253,8 @@ button:active{
 
   .registration-form-container form div input{
     font-size: 0.75rem;
+    padding: 0.25rem;
+    height: auto;
   }
 
   
@@ -266,12 +268,10 @@ display: flex;
 
 .main-expense-container{
   background-color: var(--right-container);
-  border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .expense-left-section form div label{
@@ -433,7 +433,6 @@ display: none;
 .expense-income-icon svg:hover{
   background-color: black;
   color: white;
-  transform: translateY(-4px);
 }
 
 .expense-income-icon svg{
@@ -491,11 +490,11 @@ display: none;
 
 .delete-item svg:hover{
   color: red;
-  transform: translateY(-4px);
+  transform: scale(0.9);
 }
 
 .delete-item svg{
-  transition: 0.4s;
+  transition: 0.1s;
   width: 30%;
   height: 30%;
 }
@@ -609,6 +608,15 @@ display: none;
     width: 45%;
     height: 45%;
   }
+  
+  .delete-item svg:hover{
+    color: none;
+  }
+
+  .delete-item svg:active{
+    color: red;
+    transform: scale(0.9);
+  }
 }
 
 
@@ -654,7 +662,7 @@ display: none;
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 .user-details{
@@ -663,7 +671,7 @@ display: none;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .user-image img:hover{
@@ -692,13 +700,14 @@ display: none;
 }
 
 .user-name p{
-  opacity: 0.6;
   margin: 0;
   padding: 0;
+  font-size: 0.75rem;
+  font-weight: bold;
 }
 
 .user-name h1{
-  font-size: 1.3rem;
+  font-size: auto;
   margin: 0;
   padding: 0;
 }
@@ -708,10 +717,22 @@ display: none;
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
+  gap: 0.5rem;
 }
 
 .hamburger-menu{
   display: none;
+}
+
+.sign-out-btn{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sign-out-btn a{
+ text-decoration: none;
 }
 
 @media screen and (max-width: 1100px){
@@ -738,17 +759,29 @@ display: none;
     position: absolute;
     height: 100vh;
     gap: 2rem;
-    background-color: #99CCED;
+    background-color: #b9e3ff;
     transition: 0.5s;
   }
 
   .nav-links.active{
     left: 0;
   }
+
+  .sign-out-btn.active{
+    left: 0;
+  }
   
   .sign-out-btn{
-    display: none;
+    align-items: center;
+    width: 100%;
+    top: 500%;
+    left: -100%;
+    z-index: -3;
+    position: absolute;
+    height: 100vh;
+    transition: 0.5s;
   }
+  
 
   .user-details{
     gap: 0.75rem;
@@ -792,8 +825,6 @@ display: none;
   align-items: center;
   flex-direction: column;
   width: 100%;
- border-radius: 5px;
- box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .dashboard-heading{
@@ -849,7 +880,7 @@ display: none;
   width: 80%;
   background-color: white;
   border-radius: 10px;
-  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;    border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .net-income:hover{
@@ -874,7 +905,6 @@ display: none;
 }
 
 .total-content{
-  height: 10%;
  width: 80%;
  display: flex;
  justify-content: center;
@@ -887,14 +917,16 @@ display: none;
   transition: 0.4s;
   background-color: white;
   border-radius: 10px;
-  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;    border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 50%;
   height: 100%;
   gap: 1rem;
+  padding: 0.3rem;
 }
+
 
 .total-db-expense-income:hover{
   transform: translateY(-4px);
@@ -1081,10 +1113,17 @@ margin: 0;
     font-size: 0.75rem;
   }
 
+  .db-expense-income-details svg{
+    width: 11px;
+    height: 11px;
+  }
+
   .total-db-expense-income img{
    height: 30px;
    width: 30px;
   }
+
+  
 
   .total-db-expense-income{
     padding: 0.5rem;
@@ -1092,6 +1131,11 @@ margin: 0;
 
   .net-income-left h1{
     font-size: 1rem;
+  }
+
+  .net-income-left svg{
+    height: 13px;
+    width: 13px;
   }
 
   .net-income-left h3{
@@ -1139,19 +1183,17 @@ margin: 0;
 
 .main-transaction-container{
   background-color: var(--right-container);
-  border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .debit-container{
   height: 100%;
   width: 50%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
 }
@@ -1160,7 +1202,7 @@ margin: 0;
   height: 100%;
   width: 50%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
 }
@@ -1172,25 +1214,26 @@ table{
 }
 .tbl-header{
   cursor: pointer;
-  border-radius: 10px 10px 0 0;
+  border-radius: 5px 5px 0 0;
   width: 90%;
   background-color: var(--btn-color2);
  }
 .tbl-content{
+  height: auto;
   cursor: pointer;
   width: 90%;
-  height: 50%;
+  max-height: 80%;
   overflow-x: auto;
   margin-top: 0px;
   border-bottom: 1px solid var(--btn-color2);
-  border-radius: 0 0 10px 10px;
+  border-radius: 0 0 5px 5px;
 }
 th{
   cursor: pointer;
   padding: 20px 15px;
   text-align: left;
   font-size: 0.75rem;
-  color: black;
+  color: white;
   
 }
 td{

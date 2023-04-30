@@ -17,11 +17,15 @@ function Navbar() {
   const [thirdB,setThirdB]=useState("none")
   const [fourthB,setFourthB]=useState("none")
 
+  const [userName,setUserName]=useState('');
+
   const [click,setClick]=useState(false)
   const handleClick=()=>setClick(!click)
 
+
+
   const firstchange=()=>{
-    setFirst("#FAEDF0");
+    setFirst("#121212");
     setSecond("white")
     setThird("white")
     setFourth("white")
@@ -33,7 +37,7 @@ function Navbar() {
 
   const secondchange=()=>{
     setFirst("white");
-    setSecond("#FAEDF0")
+    setSecond("#121212")
     setThird("white")
     setFourth("white")
     setFirstB("none")
@@ -45,7 +49,7 @@ function Navbar() {
   const thirdchange=()=>{
     setFirst("white");
     setSecond("white")
-    setThird("#FAEDF0")
+    setThird("#121212")
     setFourth("white")
     setFirstB("none")
     setSecondB("none")
@@ -57,7 +61,7 @@ function Navbar() {
     setFirst("white");
     setSecond("white")
     setThird("white")
-    setFourth("#FAEDF0")
+    setFourth("#121212")
     setFirstB("none")
     setSecondB("none")
     setThirdB("none")
@@ -108,6 +112,28 @@ function Navbar() {
   window.localStorage.setItem('nav-color4',JSON.stringify(fourth))
   },[fourth])
 
+  const [username, setUsername] = useState('');
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const usernameFromLocalStorage = localStorage.getItem('username');
+      if (usernameFromLocalStorage) {
+        setUsername(usernameFromLocalStorage);
+      }
+    }
+  }, []);
+
+  const [email, setEmail] = useState('');
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const emailFromLocalStorage = localStorage.getItem('email');
+      if (emailFromLocalStorage) {
+        setEmail(emailFromLocalStorage);
+      }
+    }
+  }, []);
+
 
   return (
     <section className="main-navbar-section">
@@ -122,8 +148,7 @@ function Navbar() {
                />
               </div>
               <div className="user-name">
-               <h1>Thakur</h1>
-               <p>thakur_69</p>
+               <h1>{username || 'Guest'}</h1>
               </div>
             </div>
             <ul className={click ? "nav-links active" : "nav-links"}>
@@ -132,9 +157,11 @@ function Navbar() {
                 <Link href="/incomes" onClick={thirdchange} style={{color:third,border:thirdB}}><li><FontAwesomeIcon icon={faMoneyBillTrendUp} width={50}/>Income</li></Link>
                 <Link href="/transaction" onClick={fourthchange} style={{color:fourth,border:fourthB}}><li><FontAwesomeIcon icon={faCreditCard} width={50}/>Transactions</li></Link>
             </ul>
-            <div className="sign-out-btn">
+            <div className={click ? "sign-out-btn active" : "sign-out-btn"}>
+              <Link href="/">
               <button style={{width:"auto",display:"flex",justifyContent:"space-between",alignItems:"center"}}>Sign Out
-            </button>
+              </button>
+              </Link>
             </div>
             <div className="hamburger-menu" onClick={handleClick}>
           {

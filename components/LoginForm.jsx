@@ -1,12 +1,15 @@
-import { faEnvelope, faLock, faMailBulk } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope, faLock, faMailBulk, faUser } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Image from 'next/image'
 import React from 'react'
 import { useState } from 'react'
+import { useEffect } from 'react'
 
 function LoginForm() {
   const [password, setPassword] = useState('');
   const [isValid, setIsValid] = useState(false);
+  const [username,setUserName]=useState('');
+  const [email,setEmail]=useState("");
 
   const handlePasswordChange = (event) => {
     const passwordValue = event.target.value;
@@ -21,7 +24,17 @@ function LoginForm() {
     }
   };
 
-  const handlesubmit=(event)=>{
+  useEffect(() => {
+    localStorage.setItem('username', username);
+  }, [username]);
+
+  useEffect(() => {
+    localStorage.setItem('email', email);
+  }, [email]);
+  
+  
+
+  const handlesubmit=()=>{
     if (!isValid){
       alert('Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one digit.');
     }
@@ -43,12 +56,19 @@ function LoginForm() {
     <h1>Hello User!</h1>
     <p>Welcome Back</p>
     <form action="/api/newlogin" method="post" onSubmit={handlesubmit}>
+    <div>
+      <FontAwesomeIcon
+      icon={faUser}
+      width={50}
+      />
+      <input type="text" value={username} onChange={(e) => setUserName(e.target.value)} required placeholder="Enter username" name="username"/>
+      </div>
       <div>
       <FontAwesomeIcon
       icon={faEnvelope}
       width={50}
       />
-      <input type="email" required placeholder="Enter your e-mail" name="email"/>
+      <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required placeholder="Enter your e-mail" name="email"/>
       </div>
       <div>
       <FontAwesomeIcon

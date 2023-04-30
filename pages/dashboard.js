@@ -256,8 +256,8 @@ function dashboard() {
           <Image
             src="/images/increase.png"
             alt='increase'
-            height={60}
-            width={60}
+            height={50}
+            width={50}
             />
             <div className="db-expense-income-details">
              <h3 style={{opacity:"0.6"}}>Income</h3>

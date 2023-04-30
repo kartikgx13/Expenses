@@ -6,13 +6,13 @@ import { useState } from "react"
 export default function Home(){
     const [showLogin, setShowLogin] = useState(true);
     const [showRegister, setShowRegister] = useState(false);
-    const [buttonColorLogin,setButtonColorLogin]=useState("#7E38B7");
+    const [buttonColorLogin,setButtonColorLogin]=useState("#326789");
     const [buttonColorRegister,setButtonColorRegister]=useState("ghostwhite");
 
     const handleLoginClick = () => {
       setShowLogin(true);
       setShowRegister(false);
-      setButtonColorLogin("#7E38B7");
+      setButtonColorLogin("#326789");
       setButtonColorRegister("ghostwhite");
     };
 
@@ -20,7 +20,7 @@ export default function Home(){
         setShowRegister(true);
         setShowLogin(false);
         setButtonColorLogin("ghostwhite")
-        setButtonColorRegister("#7E38B7")
+        setButtonColorRegister("#326789")
     };
   return(
     <>
