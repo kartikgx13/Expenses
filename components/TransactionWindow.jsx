@@ -77,21 +77,21 @@ function TransactionWindow() {
 const categoryIconExpense = (category) => {
   switch (category) {
       case 'education':
-          return <FontAwesomeIcon icon={faSchool} height={50} width={50}/>;
+          return <FontAwesomeIcon icon={faSchool} height={30} width={30}/>;
       case 'groceries':
-          return <FontAwesomeIcon icon={faCartShopping} height={50} width={50}/>;
+          return <FontAwesomeIcon icon={faCartShopping} height={30} width={30}/>;
       case 'health':
-          return <FontAwesomeIcon icon={faNotesMedical} height={50} width={50}/>;
+          return <FontAwesomeIcon icon={faNotesMedical} height={30} width={30}/>;
       case 'subscriptions':
-          return <FontAwesomeIcon icon={faTv} height={50} width={50}/>;
+          return <FontAwesomeIcon icon={faTv} height={30} width={30}/>;
       case 'food':
-          return <FontAwesomeIcon icon={faBowlFood} height={50} width={50}/>;
+          return <FontAwesomeIcon icon={faBowlFood} height={30} width={30}/>;
       case 'clothing':
-          return <FontAwesomeIcon icon={faShirt} height={50} width={50}/>;
+          return <FontAwesomeIcon icon={faShirt} height={30} width={30}/>;
       case 'travelling':
-          return <FontAwesomeIcon icon={faCarSide} height={50} width={50}/>;
+          return <FontAwesomeIcon icon={faCarSide} height={30} width={30}/>;
       case 'other':
-          return <FontAwesomeIcon icon={faPiggyBank} height={50} width={50}/>;
+          return <FontAwesomeIcon icon={faPiggyBank} height={30} width={30}/>;
       default:
           return ''
   }
@@ -133,7 +133,7 @@ const categoryIconExpense = (category) => {
       </select>
       </div>
 
-      <button className='add-expense-btn' style={{margin:"0",width:"auto",borderRadius:"5px",padding:"1rem"}} type="submit" onClick={handleAddExpense}>
+      <button className='add-expense-btn' style={{margin:"0",width:"auto",borderRadius:"5px",padding:"0.85rem"}} type="submit" onClick={handleAddExpense}>
         Add Expense
       </button>
     </form>
@@ -160,7 +160,7 @@ const categoryIconExpense = (category) => {
               <div className="delete-item" onClick={() => handleDeleteExpense(index)}>
                <FontAwesomeIcon
                icon={faTrash}
-               width={50}
+               width={30}
                height={100}
                />
               </div>
@@ -172,7 +172,7 @@ const categoryIconExpense = (category) => {
       }
       <div className="total-expense-details">
       <div className="delete-all-btn">
-            <button onClick={deleteAllItems} style={{margin:"0",width:"auto",borderRadius:"5px",padding:"1rem"}}>Delete all</button>
+            <button onClick={deleteAllItems} style={{margin:"0",width:"auto",borderRadius:"5px",padding:"0.85rem"}}>Delete all</button>
       </div>
       <h2 style={{display:"flex",justifyContent:"center",alignItems:"center",gap:"0.5rem"}}>Total Expenses: <FontAwesomeIcon icon={faIndianRupee} width={13}/>{totalIncome()}</h2> 
       </div>

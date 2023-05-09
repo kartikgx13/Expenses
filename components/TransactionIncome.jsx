@@ -75,19 +75,19 @@ function TransactionIncome() {
   const categoryIconIncome = (category) =>{
     switch(category) {
         case 'salary':
-            return <FontAwesomeIcon icon={faMoneyBill} height={50} width={50}/>;
+            return <FontAwesomeIcon icon={faMoneyBill} height={30} width={30}/>;
         case 'freelancing':
-            return <FontAwesomeIcon icon={faUserTie} height={50} width={50}/>;
+            return <FontAwesomeIcon icon={faUserTie} height={30} width={30}/>;
         case 'investments':
-            return <FontAwesomeIcon icon={faMoneyCheck} height={50} width={50}/>;
+            return <FontAwesomeIcon icon={faMoneyCheck} height={30} width={30}/>;
         case 'stocks':
-            return <FontAwesomeIcon icon={faMoneyBillTrendUp} height={50} width={50}/>;
+            return <FontAwesomeIcon icon={faMoneyBillTrendUp} height={30} width={30}/>;
         case 'bitcoin':
-            return <FontAwesomeIcon icon={faBitcoinSign} height={50} width={50}/>;
+            return <FontAwesomeIcon icon={faBitcoinSign} height={30} width={30}/>;
         case 'bank':
-            return <FontAwesomeIcon icon={faBuildingColumns} height={50} width={50}/>;
+            return <FontAwesomeIcon icon={faBuildingColumns} height={30} width={30}/>;
         case 'other':
-            return <FontAwesomeIcon icon={faPiggyBank} height={50} width={50}/>;
+            return <FontAwesomeIcon icon={faPiggyBank} height={30} width={30}/>;
         default:
             return ''
     }
@@ -128,7 +128,7 @@ function TransactionIncome() {
       </select>
       </div>
 
-      <button className='add-income-btn' style={{margin:"0",width:"auto",borderRadius:"5px",padding:"1rem"}} type="submit" onClick={handleAddIncome}>
+      <button className='add-income-btn' style={{margin:"0",width:"auto",borderRadius:"5px",padding:"0.85rem"}} type="submit" onClick={handleAddIncome}>
         Add Income
       </button>
     </form>
@@ -155,8 +155,8 @@ function TransactionIncome() {
               <div className="delete-item" onClick={() => handleDeleteIncome(index)}>
                <FontAwesomeIcon
                icon={faTrash}
-               width={50}
-               height={50}
+               width={30}
+               height={30}
                />
               </div>
               </div>
@@ -167,7 +167,7 @@ function TransactionIncome() {
       }
       <div className="total-expense-details">
       <div className="delete-all-btn">
-            <button onClick={deleteAllItems} style={{margin:"0",width:"auto",borderRadius:"5px",padding:"1rem"}}>Delete all</button>
+            <button onClick={deleteAllItems} style={{margin:"0",width:"auto",borderRadius:"5px",padding:"0.85rem"}}>Delete all</button>
       </div>
       <h2 style={{display:"flex",justifyContent:"center",alignItems:"center",gap:"0.5rem"}}>Total Expenses: <FontAwesomeIcon icon={faIndianRupee} width={13}/>{totalIncome()}</h2> 
       </div>

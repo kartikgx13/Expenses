@@ -143,8 +143,8 @@ function Navbar() {
                <Image
                src="/images/user.png"
                alt="user_image"
-               width={40}
-               height={40}
+               width={30}
+               height={30}
                />
               </div>
               <div className="user-name">

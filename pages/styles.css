@@ -144,7 +144,7 @@ button{
   font-family: "Chivo Mono";
   width:  100%;
   text-align:  center; 
-  padding:  15px 40px;
+  padding:  0.85rem 1.5rem;
   margin:  5px; 
   background-color:  var(--btn-color2); 
   color:  white; 
@@ -184,7 +184,7 @@ button:active{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 35%;
+    width: 50%;
     background-color: var(--list-items);
 }
 
@@ -275,12 +275,12 @@ display: flex;
 }
 
 .expense-left-section form div label{
-  font-size: 1.3rem;
+  font-size: 0.85rem;
   width: 30%;
 }
 
 .expense-left-section form div select{
-  font-size: 1.3rem;
+  font-size: 0.85rem;
   width: 70%;
 }
 
@@ -293,7 +293,7 @@ display: flex;
 
 .expense-left-section form div input{
   padding: 0.5rem;
-  font-size: 1.3rem;
+  font-size: 0.85rem;
   width: 70%;
   font-family: "Chivo Mono";
   border:  none; 
@@ -309,7 +309,7 @@ display: flex;
 .expense-left-section form div input::placeholder{
   opacity: 0.5;
   color: black;
-  font-size: 1.3rem;
+  font-size: 0.85rem;
 }
 
 .expense-left-section form div{
@@ -386,7 +386,7 @@ display: none;
 }
 
 .total-expense-details{
-  width: 70%;
+  width: 85%;
   height: 10%;
   display: flex;
   justify-content: space-between;
@@ -395,6 +395,7 @@ display: none;
 }
 
 .total-expense-details h2{
+  font-size: 1.25rem;
   cursor: pointer;
   margin: 0;
 }
@@ -426,7 +427,6 @@ display: none;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
   width: 10%;
 }
 
@@ -438,7 +438,7 @@ display: none;
 .expense-income-icon svg{
   box-sizing: border-box;
   cursor: pointer;
-  padding: 0.75rem;
+  padding: 0.5rem;
   height: 40%;
   width: 40%;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -464,7 +464,7 @@ display: none;
 }
 
 .expense-title{
-  font-size: 1.5rem;
+  font-size: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -473,7 +473,7 @@ display: none;
 }
 
 .other-details{
-  font-size: 1.5rem;
+  font-size: 0.85rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -635,7 +635,7 @@ display: none;
 
 
 .nav-links a{
-  font-size: 1.2rem;
+  font-size: 1rem;
   width: 100%;
   text-decoration: none;
 }
@@ -703,12 +703,12 @@ display: none;
 .user-name p{
   margin: 0;
   padding: 0;
-  font-size: 0.75rem;
+  font-size: 0.5rem;
   font-weight: bold;
 }
 
 .user-name h1{
-  font-size: auto;
+  font-size: 1;
   margin: 0;
   padding: 0;
 }
@@ -859,14 +859,14 @@ display: none;
 
 .net-income h3{
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 1rem;
   opacity: 0.6;
 }
 
 .net-income h1{
   margin: 0;
  font-weight: bold;
- font-size: 2rem;
+ font-size: 1.25rem;
 }
 
 .net-income{
@@ -926,6 +926,7 @@ display: none;
   height: 100%;
   gap: 1rem;
   padding: 0.3rem;
+  
 }
 
 
@@ -943,7 +944,8 @@ display: none;
 }
 
 .db-expense-income-details h3{
-margin: 0;
+  font-size: 0.85rem;
+  margin: 0;
 } 
 
 .recent-history{
@@ -965,9 +967,11 @@ margin: 0;
 .recent-heading a{
   text-decoration: none;
   color: black;
+  font-size: 0.75rem;
 }
 
 .recent-heading h3{
+  font-size: 0.75rem;
   margin: 0;
 }
 
@@ -994,7 +998,7 @@ margin: 0;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .history-item-li{
@@ -1005,6 +1009,7 @@ margin: 0;
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  font-size: 0.65rem;
 }
 
 .cat-icon-history{
@@ -1037,8 +1042,12 @@ margin: 0;
   gap: 0.5rem;
 }
 
+.history-amount{
+  font-size: 0.85rem;
+}
+
 .dashboard-right-section{
-  gap: 1rem;
+  gap: 2rem;
   width: 50%;
   height: 100%;
   display: flex;
@@ -1061,7 +1070,7 @@ margin: 0;
   height: 8%;
   cursor: pointer;
   width: 100%;
-  font-size: 1rem;
+  font-size: 0.75rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
