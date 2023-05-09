@@ -138,7 +138,7 @@ function TransactionIncome() {
         <p>No incomes yet...</p>
       ) : (
         <ul className='expense-list-array'>
-          {income.map((income, index) => (
+          {income.map((income,index) => (
             <li key={index} className='expense-list-li'>
               <div className="expense-income-icon">
                  {categoryIconIncome(income.category)}

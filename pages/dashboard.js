@@ -100,13 +100,11 @@ function dashboard() {
 
   const showHistoryExpenses=()=>{
     const history=expenses.slice(-2);
-
     return history
   }
 
   const showHistoryIncome=()=>{
     const history=income.slice(-2);
-
     return history
   }
 
