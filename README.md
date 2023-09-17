@@ -25,7 +25,7 @@ Get a comprehensive view of your financial history.
 Easily identify patterns and make informed financial decisions.
 
 
-#Getting started
+# Getting started
 
 Clone this repository to your local machine.
 Install the required dependencies by running npm install.
