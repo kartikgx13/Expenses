@@ -1,4 +1,47 @@
-Deployed Website URL: https://cashify.vercel.app/
+# Exepense Tracker Application
+
+Welcome to the Expense Tracker Application! This application is designed to help you manage your expenses and income easily. Below, you'll find a brief overview of the main features of the application.
+
+# Features
+
+1. Dashboard
+The Dashboard provides an at-a-glance summary of your expenses and income.
+Quickly see your financial health in one place.
+Visual charts and statistics to help you track your financial progress.
+
+2. Expenses
+Add and categorize your daily expenses effortlessly.
+Keep track of where your money is going.
+Set budgets and receive alerts when you're close to your limit.
+
+3. Incomes
+Log your sources of income easily.
+Categorize your income for better financial planning.
+See your total income at a glance.
+
+4. Transactions
+View all your income and expenses side by side.
+Get a comprehensive view of your financial history.
+Easily identify patterns and make informed financial decisions.
+
+
+#Getting started
+
+Clone this repository to your local machine.
+Install the required dependencies by running npm install.
+Start the application with npm start.
+
+
+# Usage
+
+Visit the [Live Demo](https://port-kgx13.vercel.app/) to explore the application.
+Add your expenses and income on the respective pages.
+Check the Dashboard and Transactions pages to monitor your finances.
+
+
+# Contributing
+
+We welcome contributions to make this Expense Tracker Application even better! Feel free to open issues, submit pull requests, or provide feedback
 
 
 
